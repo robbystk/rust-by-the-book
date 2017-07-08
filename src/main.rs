@@ -1,13 +1,12 @@
 fn main() {
-    // create a tuple
-    let tup: (i32, f64, u8) = (500, 6.4, 1);
+    // Array (allocated on stack) (fixed size)
+    let a = [1, 2, 3, 4, 5];
+    let index = 10;
 
-    // destructure to extract element
-    let (x, y, z) = tup;
+    let third = a[2];
 
-    println!("The value of y is: {}", y);
+    println!("The third element of a is: {}", third);
 
-    // can also directly access
-    let one = tup.2;
-    println!("The third element of tup is: {}", one);
+    // runtime error with out of bound index
+    println!("The eleventh element f a is: {}", a[index]);
 }
