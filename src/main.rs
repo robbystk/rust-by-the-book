@@ -1,5 +1,9 @@
 fn main() {
-    let t = true;
+    // chars
+    let c = 'z';
+    let z = 'Z';
+    let heart_eyed_cat = '😻';
 
-    let f: bool = false;    // with explicit type annotation
+    // Can't use non-ascii's like this though
+    // let wat: u8 = b'😻';
 }
