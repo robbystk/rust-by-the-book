@@ -1,9 +1,13 @@
 fn main() {
-    // chars
-    let c = 'z';
-    let z = 'Z';
-    let heart_eyed_cat = '😻';
+    // create a tuple
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
 
-    // Can't use non-ascii's like this though
-    // let wat: u8 = b'😻';
+    // destructure to extract element
+    let (x, y, z) = tup;
+
+    println!("The value of y is: {}", y);
+
+    // can also directly access
+    let one = tup.2;
+    println!("The third element of tup is: {}", one);
 }
