@@ -1,8 +1,46 @@
+use std::io;
+
 fn main() {
-    // count down from 4
-    // the rev() method reverses the range
-    for number in (1..4).rev() { 
-        println!("{}!", number);
+    loop {
+        // get temperature
+        println!("Enter temperature");
+
+        let mut temp = String::new();
+
+        io::stdin().read_line(&mut temp)
+            .expect("Failed to read line");
+
+        let temp: f32 = match temp.trim().parse() {
+            Ok(num) => num,
+            Err(_)  => {
+                println!("Please type a number!");
+                continue;
+            },
+        };
+
+        println!("Enter units (F/C)");
+
+        let mut unit = String::new();
+
+        io::stdin().read_line(&mut unit)
+            .expect("Failed to read line");
+
+        let unit = unit.trim();
+
+        if unit == "F" {
+            println!("{} degrees C", f_to_c(temp));
+        } else if unit == "C" {
+            println!("{} degrees F", c_to_f(temp));
+        } else {
+            println!("Please type 'F' or 'C'");
+        };
     }
-    println!("LIFTOFF!!!");
+}
+
+fn f_to_c(temp: f32) -> f32 {
+    1.0
+}
+
+fn c_to_f(temp: f32) -> f32 {
+    1.0
 }
