@@ -1,9 +1,9 @@
 fn main() {
-    // Hello, world.
+    let number = 7;
 
-    println!("Hello, world!"); // Print statement
-
-    // multi
-    // line
-    // comment
+    if number < 5 {
+        println!("condition was true");
+    } else {
+        println!("condition was false");
+    }
 }
