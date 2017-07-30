@@ -38,9 +38,9 @@ fn main() {
 }
 
 fn f_to_c(temp: f32) -> f32 {
-    1.0
+    (temp - 32f32) / 1.8
 }
 
 fn c_to_f(temp: f32) -> f32 {
-    1.0
+    temp * 1.8 + 32f32
 }
