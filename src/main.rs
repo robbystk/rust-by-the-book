@@ -1,17 +1,17 @@
 fn main() {
     let gifts = [
-        "a partridge in a pair tree",
-        "two turtle doves",
-        "three french hens",
-        "four calling birds",
-        "five golden rings",
-        "six geese a-laying",
-        "seven swans a-swimming",
-        "eight maids a-milking",
-        "nine ladies dancing",
-        "ten lords a-leaping",
-        "eleven pipers piping",
-        "twelve drummers drumming"
+        "a partridge in a pair tree.",
+        "two turtle doves,",
+        "three french hens,",
+        "four calling birds,",
+        "five golden rings,",
+        "six geese a-laying,",
+        "seven swans a-swimming,",
+        "eight maids a-milking,",
+        "nine ladies dancing,",
+        "ten lords a-leaping,",
+        "eleven pipers piping,",
+        "twelve drummers drumming,"
     ];
 
     let ordinals = [
