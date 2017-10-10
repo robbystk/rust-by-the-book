@@ -30,11 +30,10 @@ fn main() {
     ];
 
     for i in 0..12 {
-            println!("On the {} day of Christmas, my true love gave to me",
-                     ordinals[i]);
+        println!("On the {} day of Christmas, my true love gave to me",
+                 ordinals[i]);
         for g in (0..i+1).rev() {
             println!("{}", gifts[g]);
         }
     }
-
 }
