@@ -33,7 +33,11 @@ fn main() {
         println!("On the {} day of Christmas, my true love gave to me",
                  ordinals[i]);
         for g in (0..i+1).rev() {
-            println!("{}", gifts[g]);
+            if g == 0 && i != 0 {
+                println!("and {}", gifts[g]);
+            } else {
+                println!("{}", gifts[g]);
+            }
         }
     }
 }
