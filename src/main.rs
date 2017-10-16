@@ -1,7 +1,7 @@
 fn main() {
-    let x = 5;
-    let y = x;
+    let s1 = String::from("hello");
+    let s2 = s1;
 
-    println!("x is {}", x);
-    println!("y is {}", y);
+    println!("s1 is {}", s1);
+    println!("s2 is {}", s2);
 }
