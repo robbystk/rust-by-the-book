@@ -1,7 +1,9 @@
 fn main() {
-    let mut s = String::from("hello");
-
-    let r1 = &s;
-    let r2 = &s;
-    let r3 = &mut s;    // can't do that
+    let reference_to_nothing = dangle();
 }
+
+fn dangle() -> &String {
+    let s = String::from("hello");
+
+    &s
+}   // s goes out of scope and gets dropped, so the reference points to nothing.
