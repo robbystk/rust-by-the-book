@@ -3,5 +3,5 @@ fn main() {
 
     let r1 = &s;
     let r2 = &s;
-    let r3 = &mut s;
+    let r3 = &mut s;    // can't do that
 }
