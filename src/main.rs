@@ -1,5 +1,17 @@
 fn main() {
-    let a = [1, 2, 3, 4, 5];
+    let mut user1 = User {
+        email: String::from("nobody@example.com"),
+        username: String::from("someusername123"),
+        active: true,
+        sign_in_count: 457,
+    };
 
-    let slice = &a[1..3];   // slice of type &[i32]
+    user1.email = String::from("somebody@example.com");
+}
+
+struct User {
+    username: String,
+    email: String,
+    sign_in_count: u64,
+    active: bool,
 }
