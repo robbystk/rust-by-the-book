@@ -1,9 +1,11 @@
 fn main() {
-    let s = String::from("Hello, wordl!");
+    let mut s = String::from("Hello, wordl!");
 
     let ind = first_word(&s);
 
-    let s1 = &s[0..ind];
+    s.clear();     // ind no longer makes any sense
+
+    let s1 = ind;   // but we can still use it
 
     println!("{}", s1);
 }
