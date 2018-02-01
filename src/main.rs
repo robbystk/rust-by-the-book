@@ -3,6 +3,12 @@ fn main() {
         String::from("someusername123"));
 
     user1.email = String::from("somebody@example.com");
+
+    let user2 = User {
+        email: String::from("another@example.com"),
+        username: String::from("another123"),
+        ..user1
+    };
 }
 
 struct User {
