@@ -3,9 +3,9 @@ fn main() {
 
     let ind = first_word(&s);
 
-    s.clear();     // ind no longer makes any sense
+    s = String::from("wat");
 
-    let s1 = ind;   // but we can still use it
+    let s1 = s[0..ind];   
 
     println!("{}", s1);
 }
