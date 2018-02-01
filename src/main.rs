@@ -1,24 +1,23 @@
 fn main() {
-    let mut s = String::from("Hello, wordl!");
+    let s = String::from("Hello world");
 
-    let ind = first_word(&s);
+    let _hello = &s[..5];
+    let _world = &s[6..];
 
-    s = String::from("wat");
+    let first = first_word(&s);
 
-    let s1 = s[0..ind];   
-
-    println!("{}", s1);
+    println!("{}", first);
 }
 
-fn first_word(s: &String) -> usize {
+fn first_word(s: &String) -> &str {
     let bytes = s.as_bytes();   // convert String to byte array
 
     // iterate over byte array, adding index with enumerate
     for (i, &item) in bytes.iter().enumerate() {
         if item == b' ' {
-            return i;   // index of first space
+            return &s[..i];   // slice of first word
         }
     }
 
-    s.len() // or length if no spaces (==> one word)
+    &s[..] // or entire string if no spaces (==> one word)
 }
