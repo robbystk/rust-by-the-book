@@ -2,7 +2,7 @@ enum Coin {
     Penny,
     Nickel,
     Dime,
-    Quarter(UsState),
+    Quarter(Option<UsState>),
 }
 
 #[derive(Debug)]
@@ -24,16 +24,20 @@ fn value_in_cents(coin: Coin) -> i32 {
         },
         Coin::Nickel => 5,
         Coin::Dime => 10,
-        Coin::Quarter(state) => {
+        Coin::Quarter(Some(state)) => {
             println!("{:?} state quarter!", state);
             25
         },
+        Coin::Quarter(None) => 25,
     }
 }
 
 fn main() {
-    let coin = Coin::Quarter(UsState::Colorado);
+    let state_quarter = Coin::Quarter(Some(UsState::Colorado));
+    let stateless_quarter = Coin::Quarter(None);
 
     println!("The coin has a value of {} cents",
-             value_in_cents(coin));
+             value_in_cents(state_quarter));
+    println!("The coin has a value of {} cents",
+             value_in_cents(stateless_quarter));
 }
