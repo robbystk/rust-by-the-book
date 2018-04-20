@@ -24,11 +24,13 @@ fn value_in_cents(coin: Coin) -> i32 {
         },
         Coin::Nickel => 5,
         Coin::Dime => 10,
-        Coin::Quarter(Some(state)) => {
-            println!("{:?} state quarter!", state);
+        Coin::Quarter(state_option) => {
+            match state_option {
+                Some(state) => println!("{:?} state quarter!", state),
+                None => (),
+            };
             25
         },
-        Coin::Quarter(None) => 25,
     }
 }
 
