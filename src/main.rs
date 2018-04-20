@@ -1,6 +1,22 @@
-fn main() {
-    let x: i8 = 5;
-    let y: Option<i8> = Some(5);
+enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter,
+}
 
-    let sum = x + y;
+fn value_in_cents(coin: Coin) -> i32 {
+    match coin {
+        Coin::Penny => 1,
+        Coin::Nickel => 5,
+        Coin::Dime => 10,
+        Coin::Quarter => 25,
+    }
+}
+
+fn main() {
+    let coin = Coin::Penny;
+
+    println!("The coin has a value of {} cents",
+             value_in_cents(coin));
 }
