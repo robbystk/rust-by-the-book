@@ -1,20 +1,6 @@
-enum Message {
-    Quit,
-    Move { x: f32, y: f32 },
-    Write(String),
-    ChangeColor(i32, i32, i32)
-}
-
-impl Message {
-    fn call(&self) {
-        // pass
-    }
-}
-
-
 fn main() {
-    let m = Message::Write(String::from("hello"));
+    let some_number = Some(5);
+    let some_string = Some("a string");
 
-    m.call();
-
+    let missing_number: Option<i32> = None;
 }
