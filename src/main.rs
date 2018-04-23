@@ -34,6 +34,11 @@ fn value_in_cents(coin: Coin) -> i32 {
 fn main() {
     let coin = Coin::Quarter(UsState::Colorado);
 
-    println!("The coin has a value of {} cents",
-             value_in_cents(coin));
+    let mut count = 0;
+    match coin {
+        Coin::Quarter(state) => println!("State quarter from {:?}!", state),
+        _ => count += 1,
+    }
+
+    println!("There were {} non-quarter coins", count)
 }
