@@ -4,7 +4,13 @@ mod network {
     }
 }
 
-// Call (not here because it's a library) with network::connect()
+mod client {
+    fn connect() {
+    }
+}
+
+// Two completely separate functions, called network::connect() and
+// client::connect()
 
 #[cfg(test)]
 mod tests {
