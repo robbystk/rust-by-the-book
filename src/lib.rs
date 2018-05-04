@@ -2,15 +2,14 @@ mod network {
     fn connect() {
 
     }
-}
 
-mod client {
-    fn connect() {
+    mod client {
+        fn connect() {
+        }
     }
 }
 
-// Two completely separate functions, called network::connect() and
-// client::connect()
+// Now called network::connect() and network::client::connect()
 
 #[cfg(test)]
 mod tests {
