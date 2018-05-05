@@ -3,13 +3,16 @@ mod network {
 
     }
 
-    mod client {
+    mod server {
         fn connect() {
         }
     }
 }
 
-// Now called network::connect() and network::client::connect()
+mod client {
+    fn connect() {
+    }
+}
 
 #[cfg(test)]
 mod tests {
