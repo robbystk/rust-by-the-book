@@ -1,13 +1,13 @@
-pub mod a {
-    pub mod series {
-        pub mod of {
-            pub fn nested_modules() {}
-        }
-    }
+enum TrafficLight {
+    Red,
+    Yellow,
+    Green,
 }
 
 fn main() {
-    use a::series::of::nested_modules;
+    use TrafficLight::{Red, Yellow};
 
-    nested_modules();
+    let a = Red;
+    let b = Yellow;
+    let c = TrafficLight::Green;
 }
