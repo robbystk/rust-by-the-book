@@ -5,9 +5,9 @@ enum TrafficLight {
 }
 
 fn main() {
-    use TrafficLight::{Red, Yellow};
+    use TrafficLight::*;
 
     let a = Red;
     let b = Yellow;
-    let c = TrafficLight::Green;
+    let c = Green;
 }
