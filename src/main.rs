@@ -1,7 +1,7 @@
 fn main() {
-    let mut s = String::from("foo");
+    let mut s = String::from("lo");
 
-    s.push_str("bar");
+    s.push('l');
 
     println!("{}", s);
 }
