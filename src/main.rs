@@ -1,7 +1,7 @@
 fn main() {
-    let hello = "Здравствуйте";
+    let hello = "नमस्ते";
 
-    let s = &hello[0..1];
-
-    println!("{}", s);
+    for c in hello.chars() {
+        println!("{}", c);
+    }
 }
