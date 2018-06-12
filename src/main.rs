@@ -1,9 +1,7 @@
 fn main() {
-    let s1 = String::from("tic");
-    let s2 = String::from("tac");
-    let s3 = String::from("toe");
+    let s = String::from("Здравствуйте");
 
-    let s = format!("{}-{}-{}", s1, s2, s3);
+    let h = s[0];
 
-    println!("{}", s);
+    println!("{}", h);
 }
