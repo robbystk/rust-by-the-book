@@ -1,7 +1,7 @@
 fn main() {
-    let s = String::from("Здравствуйте");
+    let hello = "Здравствуйте";
 
-    let len = s.len();
+    let s = &hello[0..4];
 
-    println!("The length of the string is {}", len);
+    println!("{}", s);
 }
