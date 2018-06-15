@@ -1,5 +1,5 @@
 [package]
-name = "strings"
+name = "hashes"
 version = "0.1.0"
 authors = ["robby <robbystk@gmail.com>"]
 

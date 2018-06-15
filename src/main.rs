@@ -1,7 +1,8 @@
-fn main() {
-    let hello = "नमस्ते";
+use std::collections::HashMap;
 
-    for b in hello.bytes() {
-        println!("{}", b);
-    }
+fn main() {
+    let mut scores = HashMap::new();
+
+    scores.insert(String::from("Blue"), 10);
+    scores.insert(String::from("Yellow"), 50);
 }
