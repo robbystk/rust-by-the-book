@@ -1,14 +1,16 @@
 use std::collections::HashMap;
 
 fn main() {
-    let mut scores = HashMap::new();
+    let text = "hello world wonderful world";
 
-    scores.entry(String::from("Blue")).or_insert(10);
-    scores.entry(String::from("Yellow")).or_insert(50);
-    // does not insert the score of 20 because an entry for Blue already exists
-    scores.entry(String::from("Blue")).or_insert(20);
+    let mut map = HashMap::new();
 
-    for (key, value) in scores.iter() {
+    for word in text.split_whitespace() {
+        let count = map.entry(word).or_insert(0);
+        *count += 1;
+    };
+
+    for (key, value) in map.iter() {
         println!("{}: {}", key, value);
     }
 }
