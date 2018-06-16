@@ -5,6 +5,7 @@ fn main() {
 
     scores.insert(String::from("Blue"), 10);
     scores.insert(String::from("Yellow"), 50);
+    scores.insert(String::from("Blue"), 20);    // clobbers existing score
 
     println!("The Blue team has a score of {}", scores.get("Blue").unwrap())
 }
