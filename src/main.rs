@@ -8,5 +8,7 @@ fn main() {
     // does not insert the score of 20 because an entry for Blue already exists
     scores.entry(String::from("Blue")).or_insert(20);
 
-    println!("The Blue team has a score of {}", scores.get("Blue").unwrap())
+    for (key, value) in scores.iter() {
+        println!("{}: {}", key, value);
+    }
 }
