@@ -15,12 +15,19 @@ fn main() {
         *count += 1;
     };
 
-    // compute mean
+    // compute mean and mode
     let mut sum = 0f32;
     let mut count = 0i32;
+    let mut mode = 0;
+    let mut max_frequency = 0;
     for (number, frequency) in frequencies.iter() {
         sum += (*number * *frequency) as f32;
         count += *frequency;
+
+        if *frequency > max_frequency {
+            max_frequency = *frequency;
+            mode = **number;
+        }
     }
 
     let mean = sum / count as f32;
@@ -34,17 +41,6 @@ fn main() {
         let half_index = ((count - 1) / 2) as usize;
         median = list[half_index] as f32;
     };
-
-    // compute mode
-    let mut mode = 0;
-    let mut max_frequency = 0;
-
-    for (number, frequency) in frequencies.iter() {
-        if *frequency > max_frequency {
-            max_frequency = *frequency;
-            mode = **number;
-        }
-    }
 
     println!("The mean is {}.", mean);
     println!("The median is {}.", median);
