@@ -25,5 +25,28 @@ fn main() {
 
     let mean = sum / count as f32;
 
+    // compute median
+    let median;
+    if count % 2 == 0 {
+        let half_index = (count / 2) as usize;
+        median = (list[half_index] + list[half_index - 1]) as f32 / 2.0;
+    } else {
+        let half_index = ((count - 1) / 2) as usize;
+        median = list[half_index] as f32;
+    };
+
+    // compute mode
+    let mut mode = 0;
+    let mut max_frequency = 0;
+
+    for (number, frequency) in frequencies.iter() {
+        if *frequency > max_frequency {
+            max_frequency = *frequency;
+            mode = **number;
+        }
+    }
+
     println!("The mean is {}.", mean);
+    println!("The median is {}.", median);
+    println!("The mode is {}.", mode);
 }
