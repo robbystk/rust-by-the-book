@@ -15,19 +15,15 @@ fn main() {
         *count += 1;
     };
 
-    for (key, value) in frequencies.iter() {
-        println!("{}: {}", key, value);
-    }
-
     // compute mean
     let mut sum = 0f32;
-    let mut count = 0f32;
+    let mut count = 0i32;
     for (number, frequency) in frequencies.iter() {
         sum += (*number * *frequency) as f32;
-        count += *frequency as f32;
+        count += *frequency;
     }
 
-    let mean = sum / count;
+    let mean = sum / count as f32;
 
     println!("The mean is {}.", mean);
 }
