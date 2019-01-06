@@ -1,21 +1,17 @@
-fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
-    let mut largest = list[0];
-
-    for &n in list {
-        if n > largest {
-            largest = n;
-        }
+// Rust can't tell whether the returned reference will be from s1 or s2 (and
+// neither can we), so we have to specify the lifetime
+fn longest<'a>(s1: &'a str, s2: &'a str) -> &'a str {
+    if s1.len() > s2.len() {
+        s1
+    } else {
+        s2
     }
-
-    largest
 }
 
 fn main() {
-    let number_array = vec![34, 50, 25, 100, 65];
+    let string1 = String::from("abcd");
+    let string2 = "xyz";
 
-    println!("The largest number is {}", largest(&number_array));
-
-    let char_array = vec!['y', 'm', 'a', 'q'];
-
-    println!("The largest letter is {}", largest(&char_array));
+    let result = longest(&string1, string2);
+    println!("The longest string is {}", result);
 }
