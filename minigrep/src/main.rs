@@ -1,6 +1,7 @@
 use std::env;
 use std::fs;
 use std::process;
+use std::error::Error;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -13,15 +14,19 @@ fn main() {
     println!("Searching for {}", config.query);
     println!("In file {}", config.file);
 
-    run(config);
-
+    if let Err(e) = run(config) {
+        eprintln!("Application error: {}", e);
+        process::exit(1);
+    }
 }
 
-fn run(cfg: Config) {
-    let contents = fs::read_to_string(cfg.file)
-        .expect("Something went wrong while reading the file");
+// Box<dyn Error> can contain any type that implements the Error trait.
+fn run(cfg: Config) -> Result<(), Box<dyn Error>> {
+    let contents = fs::read_to_string(cfg.file)?;
 
     println!("With text:\n{}", contents);
+
+    Ok(())
 }
 
 struct Config {
