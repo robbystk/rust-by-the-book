@@ -1,10 +1,13 @@
 use std::thread;
 use std::time::Duration;
+use std::collections::HashMap;
+use std::cmp::Eq;
+use std::hash::Hash;
 
-fn simulated_expensive_calculation(intensity: u32) -> u32 {
+fn simulated_expensive_calculation(intensity: &u32) -> u32 {
     println!("calculating slowly . . .");
     thread::sleep(Duration::from_secs(2));
-    intensity
+    *intensity
 }
 
 fn generate_workout(intensity: u32, random_number: u32) {
@@ -31,29 +34,35 @@ fn generate_workout(intensity: u32, random_number: u32) {
     }
 }
 
-struct Cacher<T>
-    where T: Fn(u32) -> u32
+struct Cacher<T, A, V>
+    where
+        T: Fn(&A) -> V,
+        A: Hash + Eq,
+        V: Copy,
 {
     function: T,
-    value: Option<u32>,
+    values: HashMap<A, V>
 }
 
-impl<T> Cacher<T>
-    where T: Fn(u32) -> u32
+impl<T, A, V> Cacher<T, A, V>
+    where
+        T: Fn(&A) -> V,
+        A: Hash + Eq,
+        V: Copy,
 {
-    fn new(func: T) -> Cacher<T> {
+    fn new(func: T) -> Cacher<T, A, V> {
         Cacher {
             function: func,
-            value: None,
+            values: HashMap::new(),
         }
     }
 
-    fn value(&mut self, arg: u32) -> u32 {
-        match self.value {
-            Some(v) => v,
+    fn value(&mut self, arg: A) -> V {
+        match self.values.get(&arg) {
+            Some(v) => *v,
             None => {
-                let v = (self.function)(arg);
-                self.value = Some(v);
+                let v = (self.function)(&arg);
+                self.values.insert(arg, v);
                 v
             },
         }
